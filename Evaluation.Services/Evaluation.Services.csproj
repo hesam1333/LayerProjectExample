@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Evaluation.Brokers\Evaluation.Brokers.csproj" />
+    <ProjectReference Include="..\Evaluation.Domain\Evaluation.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

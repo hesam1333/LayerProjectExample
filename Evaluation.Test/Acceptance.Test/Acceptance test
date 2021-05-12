@@ -1,0 +1,587 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Evaluation",
+		"_postman_id": "09b7a037-c2df-9ef8-3d17-f55a5aef84fb",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"description": "",
+			"item": [
+				{
+					"name": "User login",
+					"request": {
+						"url": "{{ServerName}}/api/Auth/Login",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Email\":\"Mark2@test.com\",\n\t\"Password\":\"332211@z\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "User Register ",
+					"request": {
+						"url": "{{ServerName}}/api/Auth/register",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Email\":\"Hesam.fardad222@gmail.com\",\n\t\"Password\":\"332211@z\"\n}"
+						},
+						"description": "Only once it will work"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"description": "",
+			"item": [
+				{
+					"name": "getChartValues",
+					"request": {
+						"url": "{{ServerName}}/api/Dashboard/getChart",
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "get token from login"
+					},
+					"response": []
+				},
+				{
+					"name": "SearchEvents",
+					"request": {
+						"url": "{{ServerName}}/api/Dashboard/SearchEvents/e",
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "NotEvaluated",
+					"request": {
+						"url": "{{ServerName}}/api/Dashboard/GetNotEvaluated",
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "TopStars",
+					"request": {
+						"url": "{{ServerName}}/api/Dashboard/GetTopStars",
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EventList",
+			"description": "",
+			"item": [
+				{
+					"name": "EventList",
+					"request": {
+						"url": {
+							"raw": "{{ServerName}}/api/EventList/Get?PageSize=25&PageIndex=0&IsAscending=true&SortCloumnName=Id",
+							"host": [
+								"{{ServerName}}"
+							],
+							"path": [
+								"api",
+								"EventList",
+								"Get"
+							],
+							"query": [
+								{
+									"key": "PageSize",
+									"value": "25",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "PageIndex",
+									"value": "0",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "IsAscending",
+									"value": "true",
+									"equals": true,
+									"description": ""
+								},
+								{
+									"key": "SortCloumnName",
+									"value": "Id",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "OnGoingEvents",
+					"request": {
+						"url": "{{ServerName}}/api/EventList/OnGoingEvents",
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "EventAdd",
+			"description": "",
+			"item": [
+				{
+					"name": "Event add stage 1",
+					"request": {
+						"url": "{{ServerName}}/api/EventAdd/stage1",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"EventTitle\":\"Gsm project evaluation\",\n\t\"evaluatorDtos\":[\n\t\t\t{\n\t\t\t\t\"SureName\":\"Mark\",\n\t\t\t\t\"position\":\"Developer\",\n\t\t\t\t\"Email\":\"Mark@test.com\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"UserId\":2,\n\t\t\t\t\"SureName\":\"Mark2\",\n\t\t\t\t\"position\":\"Developer\",\n\t\t\t\t\"Email\":\"Mark2@test.com\"\n\t\t\t}\n\t\t\n\t\t],\n\t\"evaluateeDtos\":[\n\t\t\t{\n\t\t\t\t\"SureName\":\"Mark3\",\n\t\t\t\t\"position\":\"Developer\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"UserId\":2,\n\t\t\t\t\"SureName\":\"Mark4\",\n\t\t\t\t\"position\":\"Developer\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"SureName\":\"Mark5\",\n\t\t\t\t\"position\":\"Developer\"\n\t\t\t}\n\t\t\n\t\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Event add Stage2",
+					"request": {
+						"url": "{{ServerName}}/api/EventAdd/Stage2",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"EventId\":\"8\",\n\t\"QuestionIds\":\n\t\t[1 , 4 , 7  , 8 , 5]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Event Add Stage 3",
+					"request": {
+						"url": "{{ServerName}}/api/EventAdd/stage3",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"EventId\":\"8\",\n\t\"RatePointFrom\":\"1\",\n\t\"RatePointTo\":\"20\",\n\t\"StartDate\":\"2021-02-18\",\n\t\"DueDate\":\"2021-03-18\",\n\t\"RepeatMonth\":\"6\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Question",
+			"description": "",
+			"item": [
+				{
+					"name": "Add Question",
+					"request": {
+						"url": "{{ServerName}}/api/Question/Add",
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"QuestionTitle\":\"Test Question Title\",\n\t\"IsDescriptive\":false,\n\t\"QuestionGroupId\":1\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Question Delete",
+					"request": {
+						"url": "{{ServerName}}/api/Question/delete/1004",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Question Edit",
+					"request": {
+						"url": "{{ServerName}}/api/Question/edit",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"guestionId\":1004,\n\t\"newTitle\":\"edited title\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Groups",
+			"description": "",
+			"item": [
+				{
+					"name": "Get groupList for event",
+					"request": {
+						"url": "{{ServerName}}/api/questionGroup/Get/8",
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "question group add",
+					"request": {
+						"url": "{{ServerName}}/api/questionGroup/Add",
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Title\":\"test group\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "Question group delete",
+					"request": {
+						"url": "{{ServerName}}/api/questionGroup/delete/8",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							},
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "\t"
+					},
+					"response": []
+				},
+				{
+					"name": "questionGroup edit",
+					"request": {
+						"url": "{{ServerName}}/api/questionGroup/edit",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"newTitle\":\"test2 group\",\n\t\"guestionGroupId\":9\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evaluator",
+			"description": "",
+			"item": [
+				{
+					"name": "OngoingEvents for current user",
+					"request": {
+						"url": "{{ServerName}}/api/evaluator/OngoingEvents",
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": "must loged in whit evaluator token "
+					},
+					"response": []
+				},
+				{
+					"name": "Evaluatees for an event",
+					"request": {
+						"url": "{{ServerName}}/api/evaluator/evaluatees/8",
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Evaluatee",
+			"description": "",
+			"item": [
+				{
+					"name": "GetEventGroups for evaluatee",
+					"request": {
+						"url": "{{ServerName}}/api/evaluatee/GetEventGroups/1006",
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "QuestionsForGroup and evaluatee",
+					"request": {
+						"url": {
+							"raw": "{{ServerName}}/api/evaluatee/QuestionsForGroup/2?evaluateeId=1006",
+							"host": [
+								"{{ServerName}}"
+							],
+							"path": [
+								"api",
+								"evaluatee",
+								"QuestionsForGroup",
+								"2"
+							],
+							"query": [
+								{
+									"key": "evaluateeId",
+									"value": "1006",
+									"equals": true,
+									"description": ""
+								}
+							],
+							"variable": []
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "AddAnswer",
+					"request": {
+						"url": "{{ServerName}}/api/evaluatee/AddAnswer",
+						"method": "POST",
+						"header": [
+							{
+								"key": "authorization",
+								"value": "Bearer {{Token}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"EvaluateeId\":\"1006\",\n\t\"questionAnswersDtos\":[\n\t\t\t{\n\t\t\t\t\"EventQuestionId\":\"43\",\n\t\t\t\t\"Point\":\"3\",\n\t\t\t\t\"DescriptiveAnswer\":\"\"\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"EventQuestionId\":\"44\",\n\t\t\t\t\"Point\":\"7\"\n\t\t\t}\n\t\t\n\t\t]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
